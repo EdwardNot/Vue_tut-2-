@@ -1,7 +1,7 @@
 <template>
     <div>
         <form @submit.prevent="addTodo">
-            <input type="text" v-model="todotitle" name="title" placeholder="Add Todo...">
+            <input type="text" v-model="title" name="title" placeholder="Add Todo...">
             <input type="submit" value="Submit" class="btn">
         </form>
     </div>
@@ -9,21 +9,21 @@
 
 <script>
 
-import uuid from 'uuid'
+// import uuid from 'uuid'
 
 export default {
     name: "AddTodo",
     datat() {
         return {
-            todotitle: ''
+            title: ''
         }
     },
     methods: {
         addTodo() {
             const newTodo = {
-                id: uuid.v4(),
-                status: false,
-                name: this.todotitle
+                // id: uuid.v4(),
+                completed: false,
+                title: this.title
             }
 
             this.$emit('add-todo', newTodo);
